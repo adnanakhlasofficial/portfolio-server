@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  blogs    Blog[]
+  projects Project[]
+}
+
+model Blog {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  content   String // Rich text (HTML or Markdown)
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  adminId String
+  admin   Admin  @relation(fields: [adminId], references: [id])
+}
+
+model Project {
+  id             String   @id @default(uuid())
+  title          String
+  slug           String   @unique
+  description    String
+  features       String[] // JSON or Markdown
+  thumbnail      String // URL to image
+  liveLink       String // URL to live site
+  clientRepoLink String // URL to GitHub or other repo
+  serverRepoLink String // URL to GitHub or other repo
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  adminId String
+  admin   Admin  @relation(fields: [adminId], references: [id])
+}
+
+model About {
+  id          String       @id @default(uuid())
+  name        String
+  email       String
+  bio         String
+  skills      String[] // JSON or Markdown
+  experience  String // JSON or Markdown
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  experiences Experience[] // Relation to Experience
+}
+
+model Experience {
+  id          String    @id @default(uuid())
+  title       String // e.g., "Frontend Developer"
+  company     String // e.g., "BdCalling Ltd. (SM Technology)"
+  location    String // e.g., "Dhaka, Bangladesh"
+  startDate   DateTime
+  endDate     DateTime?
+  description String // Rich text or Markdown
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  aboutId String
+  about   About  @relation(fields: [aboutId], references: [id])
+}
