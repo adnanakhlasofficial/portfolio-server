@@ -11,6 +11,6 @@ export function sendResponse<T>(res: Response, data: IResponse<T>) {
   res.status(data.status).json({
     success: data.success,
     message: data.message,
-    ...(data?.data && { data: data.data }),
+    ...(typeof data.data !== "undefined" && { data: data.data }),
   });
 }

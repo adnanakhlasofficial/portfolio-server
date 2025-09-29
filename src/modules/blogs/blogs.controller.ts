@@ -14,7 +14,7 @@ const createBlog = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     status: httpStatus.CREATED,
     success: true,
-    message: "blog created successfully.",
+    message: "Blog has been created successfully.",
     data,
   });
 });
@@ -24,7 +24,7 @@ const getAllBlogs = catchAsync(async (_req: Request, res: Response) => {
   sendResponse(res, {
     status: httpStatus.OK,
     success: true,
-    message: "All blogs retrieved",
+    message: "All blogs have been retrieved successfully.",
     data,
   });
 });
@@ -35,7 +35,7 @@ const getAllPublishedBlogs = catchAsync(
     sendResponse(res, {
       status: httpStatus.OK,
       success: true,
-      message: "All published blogs retrieved",
+      message: "Published blogs have been retrieved successfully.",
       data,
     });
   }
@@ -47,7 +47,7 @@ const getSingleBlog = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     status: httpStatus.OK,
     success: true,
-    message: "Blog retrieved successfully.",
+    message: "Blog details retrieved successfully.",
     data,
   });
 });
@@ -58,7 +58,7 @@ const deleteBlog = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     status: httpStatus.OK,
     success: true,
-    message: "Blog deleted successfully.",
+    message: "Blog has been deleted successfully.",
     data,
   });
 });
@@ -69,10 +69,24 @@ const updateBlog = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     status: httpStatus.OK,
     success: true,
-    message: "Blog updated successfully.",
+    message: "Blog has been updated successfully.",
     data,
   });
 });
+
+const updateBlogPublishedStatus = catchAsync(
+  async (req: Request, res: Response) => {
+    const slug = req.params.slug;
+    const payload = req.body;
+    const data = await BlogsService.updateBlog(slug, payload);
+    sendResponse(res, {
+      status: httpStatus.OK,
+      success: true,
+      message: "Blog publication status has been updated successfully.",
+      data,
+    });
+  }
+);
 
 export const BlogsController = {
   createBlog,
@@ -81,4 +95,5 @@ export const BlogsController = {
   getSingleBlog,
   deleteBlog,
   updateBlog,
+  updateBlogPublishedStatus,
 };

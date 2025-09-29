@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "../../libs/prisma";
 import { IJwtPayload } from "../../types";
 import { IBlog } from "./blogs.interface";
@@ -5,7 +6,8 @@ import { IBlog } from "./blogs.interface";
 const createBlog = async (payload: IBlog, admin: IJwtPayload) => {
   const updatePayload = {
     ...payload,
-    slug: payload.title
+    slug: "blog"
+      .concat(" ", payload.title)
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")
@@ -17,8 +19,8 @@ const createBlog = async (payload: IBlog, admin: IJwtPayload) => {
     data: { ...updatePayload },
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -33,8 +35,8 @@ const getAllBlogs = async () => {
   const data = await prisma.blog.findMany({
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -52,8 +54,8 @@ const getAllPublishedBlogs = async () => {
     },
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -72,8 +74,8 @@ const getSingleBlog = async (slug: string) => {
 
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -83,6 +85,7 @@ const getSingleBlog = async (slug: string) => {
   });
   return data;
 };
+
 const deleteBlog = async (slug: string) => {
   const data = await prisma.blog.delete({
     where: {
@@ -91,8 +94,8 @@ const deleteBlog = async (slug: string) => {
 
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -111,8 +114,32 @@ const updateBlog = async (slug: string, payload: IBlog) => {
     data: payload,
     select: {
       id: false,
-      title: true,
       slug: true,
+      title: true,
+      content: true,
+      published: true,
+      createdAt: true,
+      updatedAt: true,
+      adminId: false,
+    },
+  });
+  return data;
+};
+
+const updateBlogPublishedStatus = async (slug: string, payload: boolean) => {
+  const data = await prisma.blog.update({
+    where: {
+      slug,
+    },
+    data: {
+      published: {
+        set: payload,
+      },
+    },
+    select: {
+      id: false,
+      slug: true,
+      title: true,
       content: true,
       published: true,
       createdAt: true,
@@ -130,4 +157,5 @@ export const BlogsService = {
   getSingleBlog,
   deleteBlog,
   updateBlog,
+  updateBlogPublishedStatus,
 };

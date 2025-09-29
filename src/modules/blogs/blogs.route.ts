@@ -2,26 +2,34 @@ import { Router } from "express";
 import { BlogsController } from "./blogs.controller";
 import { checkAuth } from "../../middlewares/check-auth";
 import { checkRequest } from "../../middlewares/check-zod-schema";
-import { CreateBlog, UpdateBlog } from "./blogs.zod";
+import { CreateBlog, UpdateBlog, UpdateBlogPublishedStatus } from "./blogs.zod";
 
 const router = Router();
 
 router.post(
-  "/create",
+  "/",
   checkAuth(),
   checkRequest(CreateBlog),
   BlogsController.createBlog
 );
 
+router.get("/", checkAuth(), BlogsController.getAllBlogs);
+router.get("/published", BlogsController.getAllPublishedBlogs);
+router.get("/:slug", BlogsController.getSingleBlog);
+
 router.put(
-  "/update/:slug",
+  "/:slug",
   checkAuth(),
   checkRequest(UpdateBlog),
   BlogsController.updateBlog
 );
-router.get("/all-blogs", checkAuth(), BlogsController.getAllBlogs);
-router.get("/all-published-blogs", BlogsController.getAllPublishedBlogs);
-router.get("/:slug", BlogsController.getSingleBlog);
-router.delete("/delete/:slug", checkAuth(), BlogsController.deleteBlog);
+router.patch(
+  "/publish/:slug",
+  checkAuth(),
+  checkRequest(UpdateBlogPublishedStatus),
+  BlogsController.updateBlogPublishedStatus
+);
+
+router.delete("/:slug", checkAuth(), BlogsController.deleteBlog);
 
 export const BlogsRouter = router;

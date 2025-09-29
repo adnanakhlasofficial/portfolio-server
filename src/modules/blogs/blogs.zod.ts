@@ -9,5 +9,8 @@ export const CreateBlog = z.object({
 export const UpdateBlog = z.object({
   title: z.string().trim().optional(),
   content: z.string().trim().optional(),
-  published: z.boolean().optional(),
+});
+
+export const UpdateBlogPublishedStatus = z.object({
+  published: z.boolean(),
 });
