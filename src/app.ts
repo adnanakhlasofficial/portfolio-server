@@ -2,11 +2,14 @@ import compression from "compression";
 import cors from "cors";
 import express from "express";
 import router from "./router";
+import { globalErrorHandler } from "./middlewares/global-error";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 // Middleware
 app.use(cors()); // Enables Cross-Origin Resource Sharing
+app.use(cookieParser()); // Parser cookie from response
 app.use(compression()); // Compresses response bodies for faster delivery
 app.use(express.json()); // Parse incoming JSON requests
 
@@ -23,6 +26,8 @@ app.use("/api/v1", router);
 app.get("/", (_req, res) => {
   res.send("API is running");
 });
+
+app.use(globalErrorHandler);
 
 // 404 Handler
 app.use((req, res, next) => {

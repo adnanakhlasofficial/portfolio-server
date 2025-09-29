@@ -2,12 +2,11 @@ import http, { Server } from "http";
 import app from "./app";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
-import { PrismaClient } from "@prisma/client";
 import { env } from "./config/env";
+import { prisma } from "./libs/prisma";
 
 dotenv.config();
 
-const prisma = new PrismaClient();
 let server: Server | null = null;
 
 async function startServer() {

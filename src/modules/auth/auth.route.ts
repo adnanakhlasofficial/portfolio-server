@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { authController } from "./auth.controller";
+import { AuthController } from "./auth.controller";
+import { LoginZod } from "./auth.zod";
+import { checkRequest } from "../../middlewares/check-zod-schema";
 
 const router = Router();
 
-router.post("/login", authController.login);
-router.post("/logout", authController.logout);
+router.post("/login", checkRequest(LoginZod), AuthController.login);
+router.post("/logout", AuthController.logout);
 
-export const authRouter = router;
+export const AuthRouter = router;

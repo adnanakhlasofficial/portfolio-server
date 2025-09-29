@@ -1,32 +1,32 @@
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { generateToken } from "../../utils/jwt";
 import { ILogin } from "./auth.interface";
+import { prisma } from "../../libs/prisma";
 
-const prisma = new PrismaClient();
-
-async function login(payload: ILogin) {
+const login = async (payload: ILogin) => {
   const { email, password } = payload;
 
-  const user = await prisma.admin.findUnique({
+  const resUser = await prisma.admin.findUnique({
     where: {
       email,
     },
   });
 
-  if (!user) {
+  if (!resUser) {
     throw new Error("Invalid credentials");
   }
 
-  const isPasswordOK = await bcrypt.compare(password, user.password);
+  const isPasswordOK = await bcrypt.compare(password, resUser.password);
 
   if (!isPasswordOK) {
     throw new Error("Invalid credentials");
   }
 
+  const { password: notUse, ...user } = resUser;
+
   const token = generateToken(user);
 
   return token;
-}
+};
 
-export const authService = { login };
+export const AuthService = { login };

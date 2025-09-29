@@ -1,5 +1,6 @@
-import { authRouter } from "../modules/auth/auth.route";
+import { AuthRouter } from "../modules/auth/auth.route";
 import { Router } from "express";
+import { BlogsRouter } from "../modules/blogs/blogs.route";
 
 interface IRoute {
   path: string;
@@ -11,7 +12,11 @@ const router = Router();
 const routes: IRoute[] = [
   {
     path: "/auth",
-    router: authRouter,
+    router: AuthRouter,
+  },
+  {
+    path: "/blogs",
+    router: BlogsRouter,
   },
 ];
 
