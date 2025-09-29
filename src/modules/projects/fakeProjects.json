@@ -1,0 +1,44 @@
+[
+  {
+    "title": "DevBoard",
+    "description": "A modular dashboard for developers to track tasks, commits, and deployments in one place.",
+    "features": [
+      "JWT-based authentication",
+      "Drag-and-drop task management",
+      "GitHub webhook integration",
+      "Responsive UI with Tailwind"
+    ],
+    "thumbnail": "https://example.com/thumbnails/devboard.png",
+    "liveLink": "https://devboard.adnan.dev",
+    "clientRepoLink": "https://github.com/adnan-dev/devboard-client",
+    "serverRepoLink": "https://github.com/adnan-dev/devboard-server"
+  },
+  {
+    "title": "Stackfolio",
+    "description": "A portfolio generator that lets developers showcase their tech stack, projects, and blogs with markdown support.",
+    "features": [
+      "Dynamic markdown rendering",
+      "Tech stack badges",
+      "Blog integration via API",
+      "Custom domain support"
+    ],
+    "thumbnail": "https://example.com/thumbnails/stackfolio.png",
+    "liveLink": "https://stackfolio.adnan.dev",
+    "clientRepoLink": "https://github.com/adnan-dev/stackfolio-client",
+    "serverRepoLink": "https://github.com/adnan-dev/stackfolio-server"
+  },
+  {
+    "title": "ConfigCraft",
+    "description": "A cross-platform tool to scaffold and validate modular config setups for editors, shells, and dev tools.",
+    "features": [
+      "Helix, Neovim, VS Code presets",
+      "Shell environment detection",
+      "Config validation and teardown",
+      "CLI onboarding wizard"
+    ],
+    "thumbnail": "https://example.com/thumbnails/configcraft.png",
+    "liveLink": "https://configcraft.adnan.dev",
+    "clientRepoLink": "https://github.com/adnan-dev/configcraft-client",
+    "serverRepoLink": "https://github.com/adnan-dev/configcraft-server"
+  }
+]

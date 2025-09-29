@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "public"."Admin" ALTER COLUMN "bio" DROP NOT NULL,
+ALTER COLUMN "name" DROP NOT NULL,
+ALTER COLUMN "skills" DROP NOT NULL;

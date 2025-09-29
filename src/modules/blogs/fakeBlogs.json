@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1a2b3c4d-0001-4e5f-8a9b-123456789001",
+    "title": "Modularizing Your Dev Environment with Helix",
+    "content": "Learn how to structure your Helix config for maintainability using languages.toml and efm-lsp.",
+    "published": true,
+    "slug": "modular-dev-helix",
+    "createdAt": "2025-09-28T12:00:00.000Z",
+    "updatedAt": "2025-09-28T12:00:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0002-4e5f-8a9b-123456789002",
+    "title": "Automating PostgreSQL Setup with Shell Scripts",
+    "content": "Script teardown and install flows for PostgreSQL with version control and safety checks.",
+    "published": true,
+    "slug": "automate-postgresql-setup",
+    "createdAt": "2025-09-28T12:10:00.000Z",
+    "updatedAt": "2025-09-28T12:10:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0003-4e5f-8a9b-123456789003",
+    "title": "Cross-Platform Onboarding with pnpm",
+    "content": "Automate global path setup for pnpm across Fedora, WSL, and Windows.",
+    "published": false,
+    "slug": "pnpm-onboarding-cross-platform",
+    "createdAt": "2025-09-28T12:20:00.000Z",
+    "updatedAt": "2025-09-28T12:20:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0004-4e5f-8a9b-123456789004",
+    "title": "Type-Safe Express APIs with Reusable Error Handlers",
+    "content": "Build scalable Express APIs using higher-order functions and typed responses.",
+    "published": true,
+    "slug": "express-type-safe-error-handlers",
+    "createdAt": "2025-09-28T12:30:00.000Z",
+    "updatedAt": "2025-09-28T12:30:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0005-4e5f-8a9b-123456789005",
+    "title": "Zod + JWT: Validating Auth Payloads Like a Pro",
+    "content": "Combine Zod schemas with JWT decoding to enforce strict validation on protected routes.",
+    "published": true,
+    "slug": "zod-jwt-auth-validation",
+    "createdAt": "2025-09-28T12:40:00.000Z",
+    "updatedAt": "2025-09-28T12:40:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0006-4e5f-8a9b-123456789006",
+    "title": "PipeWire + Easy Effects: Isolating Mic and Desktop Audio",
+    "content": "Route mic input through Easy Effects while keeping desktop audio untouched using patchbay.",
+    "published": false,
+    "slug": "pipewire-easy-effects-audio-routing",
+    "createdAt": "2025-09-28T12:50:00.000Z",
+    "updatedAt": "2025-09-28T12:50:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0007-4e5f-8a9b-123456789007",
+    "title": "Refactoring Configs for Team-Wide Adoption",
+    "content": "Scale modular config patterns across teams with formatter definitions and onboarding scripts.",
+    "published": true,
+    "slug": "refactor-configs-team-scale",
+    "createdAt": "2025-09-28T13:00:00.000Z",
+    "updatedAt": "2025-09-28T13:00:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0008-4e5f-8a9b-123456789008",
+    "title": "Understanding Weak Dependencies in Linux Package Management",
+    "content": "Investigate and resolve weak dependencies in Fedora and Debian-based systems.",
+    "published": true,
+    "slug": "linux-weak-dependencies",
+    "createdAt": "2025-09-28T13:10:00.000Z",
+    "updatedAt": "2025-09-28T13:10:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0009-4e5f-8a9b-123456789009",
+    "title": "Building a Global Error Formatter for Zod + Express",
+    "content": "Create a reusable function to format Zod errors into frontend-friendly messages with hints.",
+    "published": true,
+    "slug": "zod-express-error-formatter",
+    "createdAt": "2025-09-28T13:20:00.000Z",
+    "updatedAt": "2025-09-28T13:20:00.000Z",
+    "adminId": "admin-uuid-001"
+  },
+  {
+    "id": "1a2b3c4d-0010-4e5f-8a9b-123456789010",
+    "title": "Crafting Developer-Friendly API Responses",
+    "content": "Design API responses that are explicit, minimal, and instantly usable for frontend and DX.",
+    "published": true,
+    "slug": "developer-friendly-api-responses",
+    "createdAt": "2025-09-28T13:30:00.000Z",
+    "updatedAt": "2025-09-28T13:30:00.000Z",
+    "adminId": "admin-uuid-001"
+  }
+]

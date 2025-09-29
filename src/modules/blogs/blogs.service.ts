@@ -1,4 +1,3 @@
-import { Prisma } from "@prisma/client";
 import { prisma } from "../../libs/prisma";
 import { IJwtPayload } from "../../types";
 import { IBlog } from "./blogs.interface";
