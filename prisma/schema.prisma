@@ -60,6 +60,7 @@ model Project {
 
 model Experience {
   id          String    @id @default(uuid())
+  slug        String    @unique
   title       String // e.g., "Frontend Developer"
   company     String // e.g., "BdCalling Ltd. (SM Technology)"
   location    String // e.g., "Dhaka, Bangladesh"

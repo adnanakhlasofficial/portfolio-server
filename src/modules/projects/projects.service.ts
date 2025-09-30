@@ -5,8 +5,7 @@ import { IJwtPayload } from "../../types";
 const createProject = async (payload: IProject, admin: IJwtPayload) => {
   const updatePayload = {
     ...payload,
-    slug: "project"
-      .concat(" ", payload.title)
+    slug: `project ${payload.title}`
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")

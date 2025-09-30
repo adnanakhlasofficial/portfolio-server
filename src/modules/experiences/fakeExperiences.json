@@ -1,0 +1,92 @@
+[
+  {
+    "id": "exp1",
+    "title": "Frontend Developer",
+    "company": "PixelForge Studios",
+    "location": "Berlin, Germany",
+    "startDate": "2022-02-10T00:00:00.000Z",
+    "endDate": "2023-07-15T00:00:00.000Z",
+    "description": "Built modular UI components using React and Tailwind. Led redesign of the company’s design system."
+  },
+  {
+    "id": "exp2",
+    "title": "DevOps Engineer",
+    "company": "CloudNest",
+    "location": "Toronto, Canada",
+    "startDate": "2020-06-01T00:00:00.000Z",
+    "endDate": "2021-11-30T00:00:00.000Z",
+    "description": "Automated CI/CD pipelines with GitHub Actions and Docker. Managed Kubernetes clusters across staging and production."
+  },
+  {
+    "id": "exp3",
+    "title": "Full Stack Developer",
+    "company": "CodeCraft Labs",
+    "location": "Dhaka, Bangladesh",
+    "startDate": "2019-03-20T00:00:00.000Z",
+    "endDate": "2020-05-25T00:00:00.000Z",
+    "description": "Developed scalable APIs with Express and PostgreSQL. Integrated third-party services for payments and analytics."
+  },
+  {
+    "id": "exp4",
+    "title": "Software Engineer Intern",
+    "company": "TechNova",
+    "location": "San Francisco, USA",
+    "startDate": "2018-07-01T00:00:00.000Z",
+    "endDate": "2018-09-30T00:00:00.000Z",
+    "description": "Contributed to internal tooling for developer onboarding. Wrote scripts to automate environment setup."
+  },
+  {
+    "id": "exp5",
+    "title": "Backend Developer",
+    "company": "DataHive",
+    "location": "Amsterdam, Netherlands",
+    "startDate": "2021-01-05T00:00:00.000Z",
+    "endDate": "2022-04-10T00:00:00.000Z",
+    "description": "Architected RESTful APIs with Node.js and Prisma. Implemented role-based access control and audit logging."
+  },
+  {
+    "id": "exp6",
+    "title": "Technical Writer",
+    "company": "DocuStack",
+    "location": "London, UK",
+    "startDate": "2020-10-15T00:00:00.000Z",
+    "endDate": "2021-04-20T00:00:00.000Z",
+    "description": "Created developer guides and API documentation for internal tools. Collaborated with engineers to improve onboarding."
+  },
+  {
+    "id": "exp7",
+    "title": "Mobile App Developer",
+    "company": "SwiftNest",
+    "location": "Sydney, Australia",
+    "startDate": "2019-01-10T00:00:00.000Z",
+    "endDate": "2019-12-05T00:00:00.000Z",
+    "description": "Built cross-platform apps using React Native. Integrated push notifications and offline caching."
+  },
+  {
+    "id": "exp8",
+    "title": "UI/UX Designer",
+    "company": "DesignGrid",
+    "location": "Paris, France",
+    "startDate": "2021-08-01T00:00:00.000Z",
+    "endDate": "2022-11-30T00:00:00.000Z",
+    "description": "Led user research and prototyping for SaaS dashboard. Delivered high-fidelity designs in Figma."
+  },
+  {
+    "id": "exp9",
+    "title": "System Administrator",
+    "company": "InfraCore",
+    "location": "Singapore",
+    "startDate": "2017-12-01T00:00:00.000Z",
+    "endDate": "2019-03-15T00:00:00.000Z",
+    "description": "Managed Linux servers and automated backups. Monitored system health and resolved network issues."
+  },
+  {
+    "id": "exp10",
+    "title": "Product Engineer",
+    "company": "LaunchPad",
+    "location": "New York, USA",
+    "startDate": "2023-06-01T00:00:00.000Z",
+    "endDate": "2025-01-01T00:00:00.000Z",
+    "description": "Collaborated with cross-functional teams to deliver new product features. Focused on performance optimization and accessibility."
+  }
+]

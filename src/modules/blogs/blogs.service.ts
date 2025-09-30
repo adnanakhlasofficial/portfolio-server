@@ -5,8 +5,7 @@ import { IBlog } from "./blogs.interface";
 const createBlog = async (payload: IBlog, admin: IJwtPayload) => {
   const updatePayload = {
     ...payload,
-    slug: "blog"
-      .concat(" ", payload.title)
+    slug: `blog ${payload.title}`
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")

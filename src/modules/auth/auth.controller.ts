@@ -1,12 +1,10 @@
 import { Request, Response } from "express";
-import { sendResponse } from "../../utils/send-response";
-import { AuthService } from "./auth.service";
-import { clearCookie, setCookie } from "../../utils/cookie";
+import httpStatus from "http-status-codes";
 import { cookieName } from "../../constant";
 import { catchAsync } from "../../utils/catch-async";
-import httpStatus from "http-status-codes";
-import { JwtPayload } from "jsonwebtoken";
-import { IJwtPayload } from "../../types";
+import { clearCookie, setCookie } from "../../utils/cookie";
+import { sendResponse } from "../../utils/send-response";
+import { AuthService } from "./auth.service";
 
 const login = catchAsync(async (req: Request, res: Response) => {
   const payload = req.body;
@@ -31,15 +29,7 @@ const logout = catchAsync(async (_req: Request, res: Response) => {
   });
 });
 
-const updatePassword = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.user;
-  const { newPassword, oldPassword } = req.body;
-  const data = await AuthService.updatePassword(oldPassword, id, newPassword);
-  sendResponse(res, {
-    status: httpStatus.OK,
-    success: true,
-    message: "Your password has been updated successfully.",
-  });
-});
-
-export const AuthController = { login, logout, updatePassword };
+export const AuthController = {
+  login,
+  logout,
+};

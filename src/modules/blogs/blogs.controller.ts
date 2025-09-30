@@ -42,7 +42,7 @@ const getAllPublishedBlogs = catchAsync(
 );
 
 const getSingleBlog = catchAsync(async (req: Request, res: Response) => {
-  const slug = req.params.slug;
+  const { slug } = req.params;
   const data = await BlogsService.getSingleBlog(slug);
   sendResponse(res, {
     status: httpStatus.OK,
@@ -53,7 +53,7 @@ const getSingleBlog = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteBlog = catchAsync(async (req: Request, res: Response) => {
-  const slug = req.params.slug;
+  const { slug } = req.params;
   const data = await BlogsService.deleteBlog(slug);
   sendResponse(res, {
     status: httpStatus.OK,
@@ -63,7 +63,7 @@ const deleteBlog = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const updateBlog = catchAsync(async (req: Request, res: Response) => {
-  const slug = req.params.slug;
+  const { slug } = req.params;
   const payload = req.body;
   const data = await BlogsService.updateBlog(slug, payload);
   sendResponse(res, {
@@ -76,7 +76,7 @@ const updateBlog = catchAsync(async (req: Request, res: Response) => {
 
 const updateBlogPublishedStatus = catchAsync(
   async (req: Request, res: Response) => {
-    const slug = req.params.slug;
+    const { slug } = req.params;
     const payload = req.body;
     const data = await BlogsService.updateBlog(slug, payload);
     sendResponse(res, {

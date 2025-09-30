@@ -1,8 +1,7 @@
 import bcrypt from "bcrypt";
+import { prisma } from "../../libs/prisma";
 import { generateToken } from "../../utils/jwt";
 import { ILogin } from "./auth.interface";
-import { prisma } from "../../libs/prisma";
-import { env } from "../../config/env";
 
 const login = async (payload: ILogin) => {
   const { email: payloadEmail, password } = payload;
@@ -30,40 +29,4 @@ const login = async (payload: ILogin) => {
   return token;
 };
 
-const updatePassword = async (
-  oldPassword: string,
-  adminId: string,
-  newPassword: string
-) => {
-  const admin = await prisma.admin.findUnique({
-    where: {
-      id: adminId,
-    },
-  });
-
-  const isPasswordOK = await bcrypt.compare(
-    oldPassword,
-    admin?.password as string
-  );
-
-  if (!isPasswordOK) {
-    throw new Error("Invalid credentials");
-  }
-
-  const newHashedPassword = await bcrypt.hash(
-    newPassword,
-    Number(env.BCRYPT_SALT)
-  );
-
-  const newAdminPassword = await prisma.admin.update({
-    where: {
-      id: adminId,
-    },
-    data: {
-      password: newHashedPassword,
-    },
-  });
-  return newAdminPassword;
-};
-
-export const AuthService = { login, updatePassword };
+export const AuthService = { login };
